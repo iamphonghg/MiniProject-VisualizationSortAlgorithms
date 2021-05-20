@@ -7,11 +7,21 @@ import javafx.scene.shape.Rectangle;
 
 
 public class Block extends Rectangle {
-
-    public Block(double width, double height, Insets margin) {
+    private double posX;
+    public Block(double width, double height) {
         this.setWidth(width);
         this.setHeight(height);
         this.setFill(Color.WHITE);
-        HBox.setMargin(this, margin);
+    }
+
+    public double getPosX() {
+        return posX;
+    }
+    public void setPosX(double posX) {
+        this.posX = posX;
+    }
+    public void mySetLayoutX(double x) {
+        this.setLayoutX(x);
+        this.setPosX(x);
     }
 }
