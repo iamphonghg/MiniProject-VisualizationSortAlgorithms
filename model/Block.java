@@ -10,7 +10,7 @@ public class Block extends Rectangle {
     public Block(double width, double height) {
         this.setWidth(width);
         this.setHeight(height);
-        this.setFill(Color.WHITE);
+        this.setFill(Color.BLACK);
     }
 
     public TranslateTransition moveBlock(double distanceVariation) {

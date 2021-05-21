@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import model.Block;
 import sort.BubbleSort;
+import sort.QuickSort;
 
 import java.net.URL;
 import java.util.List;
@@ -88,6 +89,8 @@ public class Controller implements Initializable {
                 break;
             }
             case "QUICK SORT": {
+                QuickSort quickSort = new QuickSort();
+                transitions = quickSort.startSort(blocks);
                 break;
             }
             case "HEAP SORT": {
@@ -108,8 +111,6 @@ public class Controller implements Initializable {
             sequentialTransition = new SequentialTransition();
             sequentialTransition.getChildren().addAll(transitions);
             sequentialTransition.play();
-
-
             transitions.clear();
         }
     }
