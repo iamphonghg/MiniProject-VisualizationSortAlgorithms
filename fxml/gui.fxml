@@ -7,17 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="878.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
       <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="73.0" prefWidth="851.0" style="-fx-background-color: gray;">
          <children>
-            <ComboBox fx:id="cbxAlgorithms" layoutX="48.0" layoutY="32.0" prefWidth="150.0" />
-            <Button fx:id="btnSort" layoutX="753.0" layoutY="33.0" mnemonicParsing="false" text="SORT" textFill="#6e6666">
+            <ComboBox fx:id="cbxAlgorithms" layoutX="48.0" layoutY="32.0" prefWidth="150.0" promptText="BUBBLE SORT" />
+            <Button fx:id="btnSort" layoutX="678.0" layoutY="33.0" mnemonicParsing="false" text="SORT" textFill="#6e6666">
                <font>
                   <Font name="JetBrains Mono ExtraBold" size="12.0" />
                </font>
             </Button>
-            <Button fx:id="btnGenerateRandom" layoutX="464.0" layoutY="32.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="228.0" text="GENERATE RANDOM" textFill="#6e6666">
+            <Button fx:id="btnGenerateRandom" layoutX="418.0" layoutY="32.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="228.0" text="GENERATE RANDOM" textFill="#6e6666">
                <font>
                   <Font name="JetBrains Mono ExtraBold" size="12.0" />
                </font>
@@ -27,17 +27,20 @@
                   <Font name="JetBrains Mono ExtraBold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="261.0" layoutY="10.0" text="Number of blocks" textFill="WHITE">
+            <Label layoutX="239.0" layoutY="10.0" text="Number of blocks" textFill="WHITE">
                <font>
                   <Font name="JetBrains Mono ExtraBold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="txtNumberBlocks" layoutX="261.0" layoutY="33.0" prefHeight="26.0" prefWidth="142.0">
+            <TextField fx:id="txtNumberBlocks" layoutX="239.0" layoutY="32.0" prefHeight="26.0" prefWidth="142.0">
                <font>
                   <Font name="JetBrains Mono ExtraBold" size="12.0" />
                </font>
             </TextField>
-            <Button fx:id="btnTemp" layoutX="807.0" layoutY="6.0" mnemonicParsing="false" text="temp" />
+            <Button fx:id="btnBoost" layoutX="754.0" layoutY="33.0" mnemonicParsing="false" text="BOOST" textFill="#6e6666">
+               <font>
+                  <Font name="JetBrains Mono ExtraBold" size="12.0" />
+               </font></Button>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="paneDisplay" layoutX="14.0" layoutY="100.0" prefHeight="488.0" prefWidth="851.0" style="-fx-background-color: gray;" />

@@ -1,27 +1,21 @@
 package model;
 
-import javafx.geometry.Insets;
-import javafx.scene.layout.HBox;
+import controller.Controller;
+import javafx.animation.TranslateTransition;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
+import javafx.util.Duration;
 
 public class Block extends Rectangle {
-    private double posX;
     public Block(double width, double height) {
         this.setWidth(width);
         this.setHeight(height);
         this.setFill(Color.WHITE);
     }
 
-    public double getPosX() {
-        return posX;
-    }
-    public void setPosX(double posX) {
-        this.posX = posX;
-    }
-    public void mySetLayoutX(double x) {
-        this.setLayoutX(x);
-        this.setPosX(x);
+    public TranslateTransition moveBlock(double distanceVariation) {
+        TranslateTransition transition = new TranslateTransition(Duration.millis(Controller.SPEED), this);
+        transition.setByX(distanceVariation);
+        return transition;
     }
 }
