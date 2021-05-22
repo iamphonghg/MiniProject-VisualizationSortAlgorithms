@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import model.Block;
 import sort.BubbleSort;
+import sort.HeapSort;
 import sort.MergeSort;
 import sort.QuickSort;
 
@@ -95,6 +96,8 @@ public class Controller implements Initializable {
                 break;
             }
             case "HEAP SORT": {
+                HeapSort heapSort = new HeapSort();
+                transitions = heapSort.startSort(blocks);
                 break;
             }
             case "RADIX SORT": {
@@ -108,7 +111,8 @@ public class Controller implements Initializable {
             case "BUCKET SORT": {
                 break;
             }
-
+            default:
+                break;
         }
         if (transitions != null) {
             sequentialTransition = new SequentialTransition();
