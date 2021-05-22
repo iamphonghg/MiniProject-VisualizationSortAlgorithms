@@ -27,17 +27,22 @@ public class QuickSort extends AbstractSort {
     }
 
     public int partition(Block[] blocks, int low, int high){
-        double pivot = blocks[high].getHeight();
-        int left = low - 1;
+        int pivot = high;
+        int left = low;
         int right = high - 1;
-        for (int i = low; i <= right; i++) {
-            if (blocks[i].getHeight() < pivot) {
+        while (true) {
+            while (blocks[left].getHeight() < blocks[pivot].getHeight() && left <= right)
                 left++;
-                transitions.add(swap(blocks, left, i));
-            }
+            while (blocks[right].getHeight() > blocks[pivot].getHeight() && left < right)
+                right--;
+            if (left >= right)
+                break;
+            transitions.add(swap(blocks, left, right));
+            left++;
+            right--;
         }
-        transitions.add(swap(blocks, left + 1, high));
-        return left + 1;
+        transitions.add(swap(blocks, pivot, left));
+        return left;
     }
 
 

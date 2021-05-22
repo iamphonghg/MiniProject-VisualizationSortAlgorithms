@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import model.Block;
 import sort.BubbleSort;
+import sort.MergeSort;
 import sort.QuickSort;
 
 import java.net.URL;
@@ -42,7 +43,7 @@ public class Controller implements Initializable {
     public static final double DISPLAY_WIDTH = 851f;
     public static final double DISPLAY_HEIGHT = 488f;
     public static final double SPACE = 1f;
-    public static double SPEED = 100;
+    public static double SPEED = 500;
 
     private SequentialTransition sequentialTransition;
     private int tempNumberOfBlocks;
@@ -100,6 +101,8 @@ public class Controller implements Initializable {
                 break;
             }
             case "MERGE SORT": {
+                MergeSort mergeSort = new MergeSort();
+                transitions = mergeSort.startSort(blocks);
                 break;
             }
             case "BUCKET SORT": {

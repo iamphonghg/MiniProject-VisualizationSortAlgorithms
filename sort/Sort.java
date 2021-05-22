@@ -6,6 +6,7 @@ public class Sort {
         for (int i : a) {
             System.out.print(i + " ");
         }
+        System.out.println();
         quickSort(a, 0, a.length - 1);
         for (int i : a) {
             System.out.print(i + " ");
@@ -41,9 +42,9 @@ public class Sort {
         while(true){
             while(array[left]<array[pivot] && left<=right)
                 left++;
-            while(array[right]>array[pivot] && left<=right)
+            while(array[right]>array[pivot] && left<right)
                 right--;
-            if(left>right)
+            if(left>=right)
                 break;
             swap(array,left,right);
             left++;
@@ -156,5 +157,27 @@ public class Sort {
     }
 
     //Bucket Sort ( chi dung sap xep so thuc co phan nguyen = 0)
+    public static int[] bucket_Sort(int[] array)
+    {
+        int[] sorted_sequence = new int[array.length];
+        int maxValue = 0;
+        for (int i = 0; i < array.length; i++)
+            if (array[i] > maxValue)
+                maxValue = array[i];
+        // Bucket Sort
+        int[] Bucket = new int[maxValue + 1];
+
+
+        for (int i = 0; i < array.length; i++)
+            Bucket[array[i]]++;
+
+        int outPos = 0;
+        for (int i = 0; i < Bucket.length; i++)
+            for (int j = 0; j < Bucket[i]; j++)
+                sorted_sequence[outPos++] = i;
+
+        return sorted_sequence;
+    }
+
 
 }
