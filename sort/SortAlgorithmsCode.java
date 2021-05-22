@@ -1,16 +1,21 @@
 package sort;
 
-public class Sort {
+public class SortAlgorithmsCode {
     public static void main(String[] args) {
-        int[] a = {12, 4, 54, 3, 545, 65, 6, 2, 6, 7, 1};
-        for (int i : a) {
-            System.out.print(i + " ");
+        double[] a = {442, 224,26, 316, 116, 28, 276, 462, 47, 422, 313, 138};
+        radixSortDouble(a);
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
         }
-        System.out.println();
-        quickSort(a, 0, a.length - 1);
-        for (int i : a) {
-            System.out.print(i + " ");
+    }
+
+    public static void test(int[] a) {
+        int[] temp = new int[a.length];
+        for (int i = 0; i < a.length; i++) {
+            temp[i] = a[i];
         }
+        temp[1] = 100;
+        a[1] = 100;
     }
 
     public static void swap(int[] array, int i, int j){
@@ -128,6 +133,30 @@ public class Sort {
         for(i=array.length-1;i>=0;i--){
             swap(array,0,i);
             heapify(array,i,0);
+        }
+    }
+
+    public static void radixSortDouble(double[] array)
+    {
+        double[] b=new double[array.length];
+        int m = (int) array[0], exp = 1;
+
+        for (int i = 0; i < array.length; i++)
+            if (array[i] > m)
+                m = (int) array[i];
+
+        while (m / exp > 0)
+        {
+            int[] bucket={0,0,0,0,0,0,0,0,0,0};
+            for (int i = 0; i < array.length; i++)
+                bucket[((int) array[i]) / exp % 10]++;
+            for (int i = 1; i < 10; i++)
+                bucket[i] += bucket[i - 1];
+            for (int i = array.length - 1; i >= 0; i--)
+                b[--bucket[((int) array[i]) / exp % 10]] = array[i];
+            for (int i = 0; i < array.length; i++)
+                array[i] = b[i];
+            exp *= 10;
         }
     }
 

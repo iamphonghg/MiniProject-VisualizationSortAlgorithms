@@ -2,7 +2,6 @@ package controller;
 
 import javafx.animation.SequentialTransition;
 import javafx.animation.Transition;
-import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,13 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
-import javafx.util.Duration;
 import model.Block;
-import sort.BubbleSort;
-import sort.HeapSort;
-import sort.MergeSort;
-import sort.QuickSort;
+import sort.*;
 
 import java.net.URL;
 import java.util.List;
@@ -101,6 +95,17 @@ public class Controller implements Initializable {
                 break;
             }
             case "RADIX SORT": {
+                RadixSort radixSort = new RadixSort();
+                transitions = radixSort.startSort(blocks);
+                for (int i = 0; i < blocks.length; i++) {
+                    if (i == 0) {
+                        blocks[i].setLayoutX(SPACE);
+                    } else {
+                        blocks[i].setLayoutX(SPACE * (i + 1) + i * blocks[i].getWidth());
+                    }
+                }
+                paneDisplay.getChildren().clear();
+                paneDisplay.getChildren().addAll(blocks);
                 break;
             }
             case "MERGE SORT": {

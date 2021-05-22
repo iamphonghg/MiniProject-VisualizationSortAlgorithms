@@ -7,6 +7,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 public class Block extends Rectangle {
+    public Block() {}
+
     public Block(double width, double height) {
         this.setWidth(width);
         this.setHeight(height);
