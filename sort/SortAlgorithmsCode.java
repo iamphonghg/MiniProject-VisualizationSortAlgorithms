@@ -7,6 +7,9 @@ public class SortAlgorithmsCode {
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
         }
+        System.out.println(2 + 0 == 0 ? true : false);
+
+
     }
 
     public static void test(int[] a) {

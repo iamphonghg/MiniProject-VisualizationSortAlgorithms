@@ -1,3 +1,32 @@
 .combo-box {
     -fx-font-family: "JetBrains Mono ExtraBold";
+    -fx-background-color: none;
+    -fx-border: none;
+    -fx-border-color: black;
+    -fx-border-bottom: 1px;
+}
+
+.text-field {
+    -fx-background-color: none;
+    -fx-border-color: black;
+}
+
+.button {
+    -fx-background-color: none;
+    -fx-background-radius: none;
+}
+
+.btn-generate {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+.btn-sort {
+    -fx-background-color: #a00404;
+    -fx-text-fill: white;
+}
+
+.btn-boost {
+    -fx-background-color: green;
+    -fx-text-fill: white;
 }

@@ -1,5 +1,7 @@
 package controller;
 
+import com.sun.webkit.graphics.WCImage;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.SequentialTransition;
 import javafx.animation.Transition;
 import javafx.collections.FXCollections;
@@ -10,16 +12,23 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import model.Block;
 import sort.*;
 
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+
+    @FXML
+    private AnchorPane paneMain;
     @FXML
     private AnchorPane paneDisplay;
     @FXML
@@ -30,10 +39,12 @@ public class Controller implements Initializable {
     private Button btnGenerateRandom;
     @FXML
     private TextField txtNumberBlocks;
-
     @FXML
     private Button btnBoost;
-
+    @FXML
+    private FontAwesomeIconView btnClose;
+    @FXML
+    private FontAwesomeIconView btnMinimize;
 
     public static final double DISPLAY_WIDTH = 851f;
     public static final double DISPLAY_HEIGHT = 488f;
@@ -73,7 +84,19 @@ public class Controller implements Initializable {
                 sequentialTransition.setRate(rate *= 10);
             }
         });
-
+        btnClose.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                System.exit(0);
+            }
+        });
+        btnMinimize.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                Stage stage = (Stage) paneMain.getScene().getWindow();
+                stage.setIconified(true);
+            }
+        });
     }
 
     public void handleSort() {
@@ -114,6 +137,25 @@ public class Controller implements Initializable {
                 break;
             }
             case "BUCKET SORT": {
+                BucketSort bucketSort = new BucketSort();
+                Block[] tempBlocks = new Block[blocks.length * 2];
+                Block[] tempSorted = blocks;
+                Collections.sort(Arrays.asList(tempSorted));
+                int numberOfBlocks = blocks.length;
+                double blockWidth = blocks[0].getWidth();
+                for (int i = 0; i < numberOfBlocks * 2; i++) {
+                    if (i < numberOfBlocks) {
+                        tempBlocks[i] = blocks[i];
+                    } else {
+                        tempBlocks[i] = new Block(blockWidth, tempSorted[i - numberOfBlocks].getHeight());
+                        tempBlocks[i].setLayoutX(SPACE * (i + 1) + i * blockWidth + 20);
+                        tempBlocks[i].setLayoutY(DISPLAY_HEIGHT - tempSorted[i - numberOfBlocks].getHeight());
+                        tempBlocks[i].setVisible(false);
+                    }
+                }
+                paneDisplay.getChildren().clear();
+                paneDisplay.getChildren().addAll(tempBlocks);
+                transitions = bucketSort.startSort(tempBlocks);
                 break;
             }
             default:

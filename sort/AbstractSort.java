@@ -4,10 +4,12 @@ import controller.Controller;
 import javafx.animation.FillTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.Transition;
+import javafx.animation.TranslateTransition;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import model.Block;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractSort {
@@ -42,5 +44,17 @@ public abstract class AbstractSort {
             fillTransition(parallelTransition, blocks[j], color);
         }
         return parallelTransition;
+    }
+
+    public List<Transition> colorBlock(Block[] blocks, Color color) {
+        List<Transition> list = new ArrayList<>();
+        for (int i = 0; i < blocks.length; i++) {
+            FillTransition fillTransition = new FillTransition();
+            fillTransition.setShape(blocks[i]);
+            fillTransition.setToValue(color);
+            fillTransition.setDuration(Duration.millis(100));
+            list.add(fillTransition);
+        }
+        return list;
     }
 }

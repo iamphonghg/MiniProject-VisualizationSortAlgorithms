@@ -17,6 +17,7 @@ public class MergeSort extends AbstractSort {
     @Override
     public List<Transition> startSort(Block[] blocks) {
         mergeSort(blocks, 0, blocks.length - 1);
+        transitions.addAll(colorBlock(blocks, SORTED_COLOR));
         return transitions;
     }
 
