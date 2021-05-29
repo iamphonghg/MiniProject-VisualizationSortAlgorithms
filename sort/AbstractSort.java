@@ -46,15 +46,15 @@ public abstract class AbstractSort {
         return parallelTransition;
     }
 
-    public List<Transition> colorBlock(Block[] blocks, Color color) {
-        List<Transition> list = new ArrayList<>();
+    public ParallelTransition colorBlock(Block[] blocks, Color color) {
+        ParallelTransition parallelTransition = new ParallelTransition();
         for (int i = 0; i < blocks.length; i++) {
             FillTransition fillTransition = new FillTransition();
             fillTransition.setShape(blocks[i]);
             fillTransition.setToValue(color);
             fillTransition.setDuration(Duration.millis(100));
-            list.add(fillTransition);
+            parallelTransition.getChildren().add(fillTransition);
         }
-        return list;
+        return parallelTransition;
     }
 }

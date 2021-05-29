@@ -52,7 +52,8 @@ public class Controller implements Initializable {
     public static double SPEED = 500;
 
     private SequentialTransition sequentialTransition;
-    private int tempNumberOfBlocks;
+    private int tempNumberOfBlocks = -1;
+    private boolean isSorted = true;
     private Block[] blocks;
     private List<Transition> transitions;
 
@@ -69,12 +70,16 @@ public class Controller implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 displayBlockAfterRandom();
+                isSorted = false;
             }
         });
         btnSort.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                handleSort();
+                if (!isSorted) {
+                    handleSort();
+                    isSorted = true;
+                }
             }
         });
         btnBoost.setOnAction(new EventHandler<ActionEvent>() {

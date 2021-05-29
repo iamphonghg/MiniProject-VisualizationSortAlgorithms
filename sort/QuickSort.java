@@ -17,7 +17,7 @@ public class QuickSort extends AbstractSort {
     @Override
     public List<Transition> startSort(Block[] blocks) {
         quickSort(blocks, 0, blocks.length - 1);
-        transitions.addAll(colorBlock(blocks, SORTED_COLOR));
+        transitions.add(colorBlock(blocks, SORTED_COLOR));
         return transitions;
     }
 
