@@ -51,7 +51,6 @@ public class Controller implements Initializable {
     public static double SPEED = 500;
 
     private SequentialTransition sequentialTransition;
-    private int tempNumberOfBlocks = -1;
     private boolean isSorted = true;
     private Block[] blocks;
     private List<Transition> transitions;
@@ -177,7 +176,7 @@ public class Controller implements Initializable {
         String numberOfBlocks = txtNumberBlocks.getText();
         String regex = "\\d+";
         if (numberOfBlocks.matches(regex)) {
-            tempNumberOfBlocks = Integer.parseInt(numberOfBlocks);
+            int tempNumberOfBlocks = Integer.parseInt(numberOfBlocks);
             blocks = randomGenerateBlock(tempNumberOfBlocks);
             paneDisplay.getChildren().clear();
             paneDisplay.getChildren().addAll(blocks);

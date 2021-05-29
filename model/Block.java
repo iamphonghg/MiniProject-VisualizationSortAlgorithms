@@ -5,6 +5,7 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import sort.AbstractSort;
 
 import java.util.Comparator;
 
@@ -14,7 +15,7 @@ public class Block extends Rectangle implements Comparable<Block> {
     public Block(double width, double height) {
         this.setWidth(width);
         this.setHeight(height);
-        this.setFill(Color.BLACK);
+        this.setFill(AbstractSort.DEFAULT_COLOR);
     }
 
     public TranslateTransition moveBlock(double distanceVariation) {

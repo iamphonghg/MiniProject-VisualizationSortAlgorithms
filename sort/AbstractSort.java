@@ -4,7 +4,6 @@ import controller.Controller;
 import javafx.animation.FillTransition;
 import javafx.animation.ParallelTransition;
 import javafx.animation.Transition;
-import javafx.animation.TranslateTransition;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import model.Block;
