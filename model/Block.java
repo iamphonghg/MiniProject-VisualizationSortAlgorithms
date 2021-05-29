@@ -23,7 +23,6 @@ public class Block extends Rectangle implements Comparable<Block> {
         return transition;
     }
 
-
     @Override
     public int compareTo(Block o) {
         return (int) (this.getHeight() - o.getHeight());

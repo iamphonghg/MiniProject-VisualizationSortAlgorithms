@@ -17,7 +17,7 @@ public class QuickSort extends AbstractSort {
     @Override
     public List<Transition> startSort(Block[] blocks) {
         quickSort(blocks, 0, blocks.length - 1);
-        transitions.add(colorBlock(blocks, SORTED_COLOR));
+        transitions.addAll(colorBlock(blocks, SORTED_COLOR));
         return transitions;
     }
 
@@ -29,7 +29,7 @@ public class QuickSort extends AbstractSort {
         }
     }
 
-    public int partition(Block[] blocks, int low, int high){
+    private int partition(Block[] blocks, int low, int high){
         int i = low;
         transitions.add(colorBlock(blocks, PIVOT_COLOR, high));
         for (int j = low; j < high; j++) {
@@ -45,7 +45,4 @@ public class QuickSort extends AbstractSort {
         transitions.add(colorBlock(blocks, SORTED_COLOR, i));
         return i;
     }
-
-
-
 }

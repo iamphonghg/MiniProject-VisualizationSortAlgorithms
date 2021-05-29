@@ -18,7 +18,7 @@ public class RadixSort extends AbstractSort {
         return null;
     }
 
-    public void radixSort(Block[] blocks) {
+    private void radixSort(Block[] blocks) {
         Block[] tempBlocks = new Block[blocks.length];
 
         for (int i = 0; i < blocks.length; i++) {

@@ -30,7 +30,7 @@ public class HeapSort extends AbstractSort {
         }
     }
 
-    public void heapify(Block[] blocks, int n, int i) {
+    private void heapify(Block[] blocks, int n, int i) {
         int largest = i;
         int l = 2 * i + 1;
         int r = 2 * i + 2;

@@ -18,7 +18,7 @@ public class BubbleSort extends AbstractSort {
         return transitions;
     }
 
-    public void bubbleSort(Block[] blocks) {
+    private void bubbleSort(Block[] blocks) {
         int numberOfBlocks = blocks.length - 1;
         for (int i = 0; i < blocks.length; i++) {
             for (int j = 0; j < blocks.length - i - 1; j++) {

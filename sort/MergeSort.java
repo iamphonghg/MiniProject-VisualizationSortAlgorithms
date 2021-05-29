@@ -17,11 +17,11 @@ public class MergeSort extends AbstractSort {
     @Override
     public List<Transition> startSort(Block[] blocks) {
         mergeSort(blocks, 0, blocks.length - 1);
-        transitions.add(colorBlock(blocks, SORTED_COLOR));
+        transitions.addAll(colorBlock(blocks, SORTED_COLOR));
         return transitions;
     }
 
-    public void mergeSort(Block[] blocks, int l, int r) {
+    private void mergeSort(Block[] blocks, int l, int r) {
         if (l < r) {
             int m = (l + r) / 2;
             mergeSort(blocks, l, m);
@@ -30,7 +30,7 @@ public class MergeSort extends AbstractSort {
         }
     }
 
-    public void merge(Block[] blocks, int l, int m, int r) {
+    private void merge(Block[] blocks, int l, int m, int r) {
         int i, j, k;
         int a1 = m - l + 1;
         int a2 = r - m;

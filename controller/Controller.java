@@ -1,6 +1,5 @@
 package controller;
 
-import com.sun.webkit.graphics.WCImage;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.SequentialTransition;
 import javafx.animation.Transition;
@@ -104,7 +103,7 @@ public class Controller implements Initializable {
         });
     }
 
-    public void handleSort() {
+    private void handleSort() {
         String selectedAlgorithm = cbxAlgorithms.getSelectionModel().getSelectedItem();
         switch (selectedAlgorithm) {
             case "BUBBLE SORT": {
@@ -174,7 +173,7 @@ public class Controller implements Initializable {
         }
     }
 
-    public void displayBlockAfterRandom() {
+    private void displayBlockAfterRandom() {
         String numberOfBlocks = txtNumberBlocks.getText();
         String regex = "\\d+";
         if (numberOfBlocks.matches(regex)) {
